@@ -1,0 +1,11 @@
+{
+    "name": "checklist",
+    "author": "Roi Sadika, Ziv Abramson",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "docker-compose up",
+        "build": "docker-compose build",
+        "lint": "eslint .",
+        "test": "jest"
+    }
+}
