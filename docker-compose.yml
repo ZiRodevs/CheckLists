@@ -1,0 +1,17 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    # Other backend configuration settings in future....
+
+# Here should be the builded FE app to be run
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - "80:80"
+    # Other frontend configuration settings
