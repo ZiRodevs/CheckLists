@@ -9,9 +9,8 @@ services:
 
 # Here should be the builded FE app to be run
 
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #   ports:
-  #     - "80:80"
-    # Other frontend configuration settings
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
