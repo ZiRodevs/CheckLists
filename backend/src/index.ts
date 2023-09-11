@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import 'dotenv/config';
 import testRoute from './routes';
+import { run } from './config/db';
 
 const app: Express = express();
 
@@ -24,3 +25,5 @@ app.use(testRoute);
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}/`);
 });
+
+run().catch(console.dir);
