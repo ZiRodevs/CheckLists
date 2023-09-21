@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import 'dotenv/config';
 import testRoute from './routes';
-import { run } from './config/db';
+import { prisma } from './config/prisma-client';
+
 
 const app: Express = express();
 
@@ -22,8 +23,18 @@ const PORT = process.env.PORT;
 app.use(testRoute);
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, async () => {
     console.log(`Server running on http://localhost:${PORT}/`);
+    // example query - get all users
+    // const getAll = await prisma.tasks_test.findMany();
+})
+
+server.on('close', async () => {
+    console.log('Received SIGINT signal.');
+    await prisma.$disconnect();
+    server.close(() => {
+        console.log('Server closed.');
+        process.exit(0);
+    })
 });
 
-run().catch(console.dir);
